@@ -21,5 +21,8 @@ jobs:
     - name: Lint code 
       run: npx eslint
 
+    - name: Run test unitaires
+      run: npm run test 
+
   
     
