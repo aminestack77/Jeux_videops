@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { mapLinear, randFloatSpread } from "../src/math";
+import { mapLinear, randFloatSpread,Lerp } from "../src/math";
 
 describe ('randFloatSpread',() => {
 test ('test si le randfloatspread egale ou inferieru à 1', () => {
