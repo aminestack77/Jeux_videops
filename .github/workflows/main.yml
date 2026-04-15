@@ -24,5 +24,6 @@ jobs:
     - name: Run test unitaires
       run: npm run test 
 
-  
+    - name: run test Fonctionelle
+      run: run testall
     
