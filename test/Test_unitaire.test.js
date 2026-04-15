@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { mapLinear, randFloatSpread,Lerp } from "../src/math";
+import { mapLinear, randFloatSpread, lerp } from "../src/math";
 
 describe ('randFloatSpread',() => {
 test ('test si le randfloatspread egale ou inferieru à 1', () => {
@@ -27,12 +27,12 @@ test ('test si le map linear return 0.88', () =>{
 
 describe ('Lerp ',()=>{
 test ('test si le Lerp return 41', () =>{
-    expect (Lerp(1,3,20)).toBe(41)
+    expect (lerp(1,3,20)).toBe(41)
     })
 })
 
 describe ('Lerp_neg',()=>{
 test ('test si le Lerp return -15.3', () =>{
-    expect (Lerp(1.3,-7,2)).toBeCloseTo(-15.3)
+    expect (lerp(1.3,-7,2)).toBeCloseTo(-15.3)
     })
 })
