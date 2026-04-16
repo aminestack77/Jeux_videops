@@ -8,7 +8,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest run ",
-    "testall" : "playwright run "
+    "testall" : "playwright test "
   },
   "repository": {
     "type": "git",
