@@ -25,5 +25,5 @@ jobs:
       run: npm run test 
 
     - name: run test Fonctionelle
-      run: run teste2e
+      run: npm run teste2e
     
