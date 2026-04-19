@@ -18,7 +18,6 @@ test('get started link', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 //MEs tests
-import { test, expect } from '@playwright/test';
 
 test.describe('Two Ships Passing in the Night', () => {
 
