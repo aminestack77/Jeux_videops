@@ -29,5 +29,5 @@ jobs:
       run: npx playwright install --with-deps
    
     - name: run test Fonctionelle
-      run: npm playwright test e2e/
+      run: npx playwright test e2e/
     
