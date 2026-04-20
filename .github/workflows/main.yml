@@ -24,7 +24,7 @@ jobs:
     - name: Run test unitaires
       run: npm run test 
 
-      #installation des navigateurs playrwright
+      #installation des navigateurs playrwright (important)
     - name: install playwright browsers
       run: npx playwright install --with-deps
    
