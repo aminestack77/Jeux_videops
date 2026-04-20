@@ -27,7 +27,7 @@ test ('test si le map linear return 0.88', () =>{
 
 describe ('Lerp ',()=>{
 test ('test si le Lerp return 41', () =>{
-    expect (lerp(1,3,20)).toBe(45)
+    expect (lerp(1,3,20)).toBe(41)
     })
 })
 
