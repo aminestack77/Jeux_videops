@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// VOS TESTS :
+// MES  TESTS fonctionelles
 test.describe('Two Ships Passing in the Night', () => {
 
   test.beforeEach(async ({ page }) => {

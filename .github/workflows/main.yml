@@ -22,8 +22,8 @@ jobs:
       run: npx eslint
 
     - name: Run test unitaires
-      run: npm run test 
-
+      run: npm run test -- --reporter=github-actions 
+      # reporter permet de faire le resumé des tests dans le workflow
       #installation des navigateurs playrwright (important)
     - name: install playwright browsers
       run: npx playwright install --with-deps
