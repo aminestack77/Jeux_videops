@@ -21,10 +21,15 @@ jobs:
     - name: Lint code 
       run: npx eslint
 
+
     - name: Run test unitaires
       run: npm run test -- --reporter=github-actions 
+    - name: Créer un résumé de test
+      run: echo "### 🧪 Exécution des tests en cours..." >> $GITHUB_STEP_SUMMARY
+      
       # reporter permet de faire le resumé des tests dans le workflow
       #installation des navigateurs playrwright (important)
+    
     - name: install playwright browsers
       run: npx playwright install --with-deps
    
