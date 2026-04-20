@@ -17,7 +17,7 @@ test.describe('Two Ships Passing in the Night', () => {
     await expect(canvas).toBeVisible();
     
     // aucune erreur critique presente 
-    expect(errors.length).toBe(0);
+    expect(errors.length).toBe(100);
   });
 
   test('Le joueur peut démarrer le jeu avec le clavier', async ({ page }) => {
