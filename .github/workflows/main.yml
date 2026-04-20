@@ -24,8 +24,12 @@ jobs:
 
     - name: Run test unitaires
       run: npm run test -- --reporter=github-actions 
+   
     - name: Créer un résumé de test
-      run: echo "### 🧪 Exécution des tests en cours..." >> $GITHUB_STEP_SUMMARY
+      if: always() # Toujours exécuter  même si les tests échouent
+      run: |
+        echo "Exécution des tests en cours..." >> $GITHUB_STEP_SUMMARY
+        echo "Si le test Playwright échoue, une annotation devrait apparaître !" >> $GITHUB_STEP_SUMMARY
       
       # reporter permet de faire le resumé des tests dans le workflow
       #installation des navigateurs playrwright (important)
@@ -36,3 +40,8 @@ jobs:
     - name: run test Fonctionelle
       run: npx playwright test e2e/
     
+    - name: Résumé des tests fonctionnels
+      if: always() 
+      run: |
+          echo " Tests Fonctionnels (Playwright)" >> $GITHUB_STEP_SUMMARY
+          echo "Phase de tests fonctionnels terminée." >> $GITHUB_STEP_SUMMARY
