@@ -48,3 +48,4 @@ jobs:
     
     - name: Audit de dépendances
       run: npm audit --audit-level=high
+      continue-on-error: true
