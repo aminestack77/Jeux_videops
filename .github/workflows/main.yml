@@ -14,24 +14,24 @@ jobs:
 
       - name: Install Node.js
         uses: actions/setup-node@v4
-        with:
-          node-version: '20'  
 
       - name: Install dependecies
         run: npm install
 
       - name: Lint code
-        run: npx eslint .
+        run: npx eslint
 
       - name: Run test unitaires
         run: npm run test -- --reporter=github-actions
 
       - name: Créer un résumé de test
-        if: always()
+        if: always() # Toujours exécuter même si les tests échouent
         run: |
           echo "Exécution des tests en cours..." >> $GITHUB_STEP_SUMMARY
           echo "Si le test Playwright échoue, une annotation devrait apparaître !" >> $GITHUB_STEP_SUMMARY
 
+      # reporter permet de faire le resumé des tests dans le workflow
+      # installation des navigateurs playrwright (important)
       - name: install playwright browsers
         run: npx playwright install --with-deps
 
@@ -48,14 +48,6 @@ jobs:
         run: npm audit --audit-level=high
         continue-on-error: true
 
-      - name: Build  
-        run: npm run build
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main'
@@ -64,11 +56,22 @@ jobs:
     permissions:
       pages: write
       id-token: write
-      actions: read  
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Configurer Pages
         uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
 
       - name: Déployer sur GitHub Pages
         id: deployment
